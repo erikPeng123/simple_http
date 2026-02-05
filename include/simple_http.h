@@ -859,6 +859,9 @@ namespace simple_http {
       HttpServer &operator=(HttpServer &&) = delete;
 
       asio::awaitable<void> start() {
+        
+        SIMPLE_HTTP_INFO_LOG("hello from EP fork!");
+
         m_acceptor = std::make_unique<asio::ip::tcp::acceptor>(*m_io_ctx_pool->getMainContext());
         m_acceptor->open(m_ep.protocol());
         error_code ec;
