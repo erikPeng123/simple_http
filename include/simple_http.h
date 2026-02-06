@@ -1511,7 +1511,7 @@ namespace simple_http {
         }
         if (ec)
         {
-          SIMPLE_HTTP_ERROR_LOG("sslsocket error: {}", ec);
+          SIMPLE_HTTP_ERROR_LOG("sslsocket error: {}", ec.message());
           co_return;
         }
         auto &headers = parser.get();
